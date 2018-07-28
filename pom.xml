@@ -30,6 +30,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
+
         <!-- web 包  与 webflux 同时添加时默认启动 web-->
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
