@@ -1,4 +1,4 @@
-#Spring Boot Webflux 笔记 
+# Spring Boot Webflux 笔记 
 Webflux 就是基于 Reactor 实现的。Spring Boot 2.0 包括⼀个新的 spring-webflux 模块。该模块
 包含对响应式 HTTP 和 WebSocket 客户端的⽀持，以及对 REST，HTML 和 WebSocket 交互等程序的⽀
 持。⼀般来说，Spring MVC ⽤于同步处理，Spring Webflux ⽤于异步处理。
