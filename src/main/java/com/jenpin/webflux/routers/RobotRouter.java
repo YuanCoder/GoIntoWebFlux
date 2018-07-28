@@ -20,7 +20,7 @@ public class RobotRouter {
     private static final String LOCATION_PATH = "/robot";
 
     /**
-     * 将请求路由到处理器（）
+     * 将请求路由到处理器
      * @param robotHandler
      * @return
      */
