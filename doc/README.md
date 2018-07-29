@@ -17,4 +17,17 @@ Webflux 就是基于 Reactor 实现的。Spring Boot 2.0 包括一个新的 spri
 ## 注意
 #### MVC 能满⾜场景的，就不需要更改为 WebFlux。  
 #### 要注意容器的支持，可以看看上⾯内嵌容器的支持。  
-#### 微服务体系结构，WebFlux 和 MVC 可以混合使用。尤其开发 IO 密集型服务的时候，选择 WebFlux 去实现。  
+#### 微服务体系结构，WebFlux 和 MVC 可以混合使用。尤其开发 IO 密集型服务的时候，选择 WebFlux 去实现。
+  
+## Mono和Flux
+#### Mono实现发布者，返回后0或1个元素，即单个对象；
+#### Flux实现发布者，返回后0或N个元素，即List列表对象；
+   
+#### Mono 常用的方法有：
+#### Mono.create()：使用MonoSink 来创建 Mono。
+#### Mono.justOrEmpty()：从一个 Optional 对象或 null 对象中创建 Mono。
+#### Mono.error()：创建一个只包含错误消息的 Mono。
+#### Mono.never()：创建一个不包含任何消息通知的 Mono。
+#### Mono.delay()：在指定的延迟时间之后，创建一个 Mono，产生数字 0 作为唯一值。
+
+#### Flux 最值得一提的是 fromIterable 用法，fromIterable(Iterable<? extends T> it) 可以发布 Iterable 类型的元素。当然，Flux 也包含了基础的操作：map、merge、concat、ﬂatMap、take；
