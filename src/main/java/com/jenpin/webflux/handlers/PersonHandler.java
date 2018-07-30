@@ -37,8 +37,8 @@ public class PersonHandler {
         return Flux.fromIterable(personRepository.findAll());
     }
 
-    public Mono<Long> modifyPerson(Person city) {
-        return Mono.create(cityMonoSink -> cityMonoSink.success(personRepository.updatePerson(city)));
+    public Mono<Long> modifyPerson(Person person) {
+        return Mono.create(cityMonoSink -> cityMonoSink.success(personRepository.updatePerson(person)));
     }
 
     public Mono<Long> deletePerson(Long id) {

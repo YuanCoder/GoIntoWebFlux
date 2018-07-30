@@ -30,12 +30,12 @@ public class PersonWebFluxController{
             return personHandler.findAllPerson();
         }
         @PostMapping()
-        public Mono<Long> savePersion(@RequestBody Person Persion) {
-            return personHandler.save(Persion);
+        public Mono<Long> savePersion(@RequestBody Person persion) {
+            return personHandler.save(persion);
         }
         @PutMapping()
-        public Mono<Long> modifyPersion(@RequestBody Person Persion) {
-            return personHandler.modifyPerson(Persion);
+        public Mono<Long> modifyPersion(@RequestBody Person persion) {
+            return personHandler.modifyPerson(persion);
         }
         @DeleteMapping(value = "/{id}")
         public Mono<Long> deletePersion(@PathVariable("id") Long id) {
