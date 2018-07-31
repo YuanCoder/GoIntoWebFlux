@@ -1,6 +1,7 @@
 package com.jenpin.webflux.handlers;
 
 import com.jenpin.webflux.dao.PersonCollectionRepository;
+import com.jenpin.webflux.dao.PersonReactiveMogoRepository;
 import com.jenpin.webflux.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,32 +15,33 @@ import reactor.core.publisher.Mono;
  * @description: PersonHandlder 处理器类Handler
  **/
 @Component
-public class PersonHandler {
+public class PersonReactiveHandler {
 
-    private final PersonCollectionRepository personRepository;
+    private final PersonReactiveMogoRepository personRepository;
 
     @Autowired
-    public PersonHandler(PersonCollectionRepository personRepository) {
+    public PersonReactiveHandler(PersonReactiveMogoRepository personRepository) {
         this.personRepository = personRepository;
     }
 
-    public Mono<Long> save(Person person) {
-        return Mono.create(personMonoSink -> personMonoSink.success(personRepository.save(person)));
+    public Mono<Person> save(Person person) {
+        return personRepository.save(person);
     }
 
     public Mono<Person> findPersonById(Long id) {
-        return Mono.justOrEmpty(personRepository.findPersonById(id));
+        return personRepository.findById(id);
     }
 
     public Flux<Person> findAllPerson() {
-        return Flux.fromIterable(personRepository.findAll());
+        return personRepository.findAll();
     }
 
-    public Mono<Long> modifyPerson(Person person) {
-        return Mono.create(personMonoSink -> personMonoSink.success(personRepository.updatePerson(person)));
+    public Mono<Person> modifyPerson(Person person) {
+        return personRepository.save(person);
     }
 
     public Mono<Long> deletePerson(Long id) {
-        return Mono.create(personMonoSink -> personMonoSink.success(personRepository.deletePerson(id)));
+        personRepository.deleteById(id);
+        return Mono.create(personMonoSink ->personMonoSink.success(id));
     }
 }

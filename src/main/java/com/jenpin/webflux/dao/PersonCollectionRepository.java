@@ -14,10 +14,10 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author: Jenpin
  * @date: 2018/7/29 11:21
  * @email: yuan_268311@163.com
- * @description: 数据访问层
+ * @description: 数据访问层 这里数据保存在集合里
  **/
 @Repository
-public class PersonRepository {
+public class PersonCollectionRepository {
 
 
     private ConcurrentMap<Long, Person> repository = new ConcurrentHashMap<>();

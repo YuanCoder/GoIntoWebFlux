@@ -3,6 +3,7 @@ package com.jenpin.webflux.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.annotation.Id;
 
 /**
  * @author: Jenpin
@@ -14,7 +15,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Person {
-
+    @Id
     private Long id;
 
     private String name;
