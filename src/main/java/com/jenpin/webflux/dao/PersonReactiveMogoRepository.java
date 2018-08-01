@@ -3,6 +3,7 @@ package com.jenpin.webflux.dao;
 import com.jenpin.webflux.model.Person;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Mono;
 
 /**
  * @author: Jenpin
@@ -12,4 +13,5 @@ import org.springframework.stereotype.Repository;
  **/
 @Repository
 public interface PersonReactiveMogoRepository extends ReactiveMongoRepository<Person , Long> {
+        Mono<Person> findByName(String name);
 }

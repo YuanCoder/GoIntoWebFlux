@@ -44,4 +44,8 @@ public class PersonReactiveHandler {
         personRepository.deleteById(id);
         return Mono.create(personMonoSink ->personMonoSink.success(id));
     }
+
+    public Mono<Person> findByPersonName(String name){
+        return personRepository.findByName(name);
+    }
 }

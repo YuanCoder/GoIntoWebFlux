@@ -20,6 +20,7 @@ import reactor.core.publisher.Mono;
 public class PersonReactiveWebFluxController {
 
     private static final String PERSON_LIST_PATH_NAME = "persons";
+    private static final String  PERSON_PATH = "say";
 
         @Autowired
         private PersonReactiveHandler personHandler;
@@ -55,9 +56,9 @@ public class PersonReactiveWebFluxController {
 
         @GetMapping("/say")
         public Mono<String> selfIntroduction(final Model model) {
-            model.addAttribute("person",personHandler.findPersonById(1L));
-            String path = "say";
-            return Mono.create(monoSink -> monoSink.success(path));
+            final Mono<Person> person = personHandler.findPersonById(1L);
+            model.addAttribute("person",person);
+            return Mono.create(monoSink -> monoSink.success(PERSON_PATH));
         }
 
         @GetMapping("/list")
@@ -66,4 +67,11 @@ public class PersonReactiveWebFluxController {
             model.addAttribute("personList", personList);
             return PERSON_LIST_PATH_NAME;
         }
+
+    @GetMapping("/search")
+    public String getByCityName(final Model model, @RequestParam("name") String name) {
+        final Mono<Person> person = personHandler.findByPersonName(name);
+        model.addAttribute("person", person);
+        return PERSON_PATH;
+    }
 }
