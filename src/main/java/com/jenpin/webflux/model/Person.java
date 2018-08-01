@@ -5,6 +5,8 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
+
 /**
  * @author: Jenpin
  * @date: 2018/7/28 0028 17:33
@@ -14,7 +16,10 @@ import org.springframework.data.annotation.Id;
 @Getter
 @Setter
 @ToString
-public class Person {
+public class Person implements Serializable {
+    /**
+     * @Id 注解标记对应库表的主键或者唯⼀标识符。
+     */
     @Id
     private Long id;
 
