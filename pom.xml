@@ -43,6 +43,8 @@
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
         </dependency>
 
+
+
         <!-- redis 依赖包 -->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
@@ -50,10 +52,10 @@
         <!--</dependency>-->
 
         <!-- thymeleaf 依赖包 -->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
 
         <!-- mybatis 依赖包 -->
       <!--  <dependency>
@@ -89,6 +91,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- 热部署 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
 
     <!-- maven 插件 运行、编译-->
@@ -97,6 +106,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
         </plugins>
     </build>
