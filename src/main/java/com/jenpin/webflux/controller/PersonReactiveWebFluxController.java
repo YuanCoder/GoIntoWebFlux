@@ -68,10 +68,15 @@ public class PersonReactiveWebFluxController {
             return PERSON_LIST_PATH_NAME;
         }
 
-    @GetMapping("/search")
-    public String getByCityName(final Model model, @RequestParam("name") String name) {
-        final Mono<Person> person = personHandler.findByPersonName(name);
-        model.addAttribute("person", person);
-        return PERSON_PATH;
-    }
+        @GetMapping("/search")
+        public String getByCityName(final Model model, @RequestParam("name") String name) {
+            final Mono<Person> person = personHandler.findByPersonName(name);
+            model.addAttribute("person", person);
+            return PERSON_PATH;
+        }
+
+        @GetMapping("/index")
+        public String getIndex(){
+            return "websocket-client";
+        }
 }
