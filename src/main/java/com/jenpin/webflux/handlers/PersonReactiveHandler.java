@@ -1,6 +1,5 @@
 package com.jenpin.webflux.handlers;
 
-import com.jenpin.webflux.dao.PersonCollectionRepository;
 import com.jenpin.webflux.dao.PersonReactiveMogoRepository;
 import com.jenpin.webflux.model.Person;
 import org.slf4j.Logger;

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/2005/Atom">
+<head>
+    <script type="text/javascript" th:src="@{https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js}"></script>
+    <link th:href="@{https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/default.css}" rel="stylesheet"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+    <meta charset="UTF-8"/>
+    <title>人员列表</title>
+</head>
+
+<body>
+
+<div class="contentDiv">
+
+    <table class="table table-hover table-condensed">
+        <legend>
+            <strong>人员列表</strong>
+        </legend>
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>电话</th>
+            <th>地址</th>
+            <th>管理</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person : ${personList}">
+            <th scope="row" th:text="${person.id}"></th>
+            <td><a th:href="@{/person/update/{id}(id=${person.id})}" th:text="${person.name}"></a></td>
+            <td th:text="${person.age}"></td>
+            <td th:text="${person.tel}"></td>
+            <td th:text="${person.address}"></td>
+            <td><a class="btn btn-danger" th:href="@{/person/delete/{id}(id=${person.id})}">删除</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div><a class="btn btn-primary" href="/person/create" role="button">新增人员</a></div>
+</div>
+
+</body>
+</html>

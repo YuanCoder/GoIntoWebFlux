@@ -20,7 +20,7 @@ public class Person implements Serializable {
     /**
      * @Id 注解标记对应库表的主键或者唯⼀标识符。
      */
-    @Id
+//    @Id
     private Long id;
 
     private String name;
