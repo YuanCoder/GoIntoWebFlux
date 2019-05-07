@@ -1,0 +1,33 @@
+
+spring:
+  #Redis 配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: yuan
+  data:
+    #mogodb配置
+    mongodb:
+      database: admin
+      host: 127.0.0.1
+      port: 27017
+      username: root
+      password: yuan
+  #thymelea模板配置
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    cache: false
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+
+logging:
+  level:
+    root: INFO
+
+GeoLocationServiceImpl:
+  endPoint: "https://maps.googleapis.com/maps/api/geocode/json"
+SunriseSunsetServiceImpl:
+  endPoint: "https://api.sunrise-sunset.org/json"
